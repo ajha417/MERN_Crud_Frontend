@@ -24,8 +24,10 @@ const Form = () => {
             itemNum:foodItems
         })
     }
-    const deleteItems = ()=>{
+    const deleteItems = ({id})=>{
+        Axios.delete(`http://localhost:3001/delete/${id}`,{
 
+        })
     }
     
   return (
@@ -60,7 +62,7 @@ const Form = () => {
                         <td>{i.foodDesc}</td>
                         <td>{i.itemNum}</td>
                         <td>
-                            <button style={{width:"80px",margin:"5px"}}>Delete</button>
+                            <button style={{width:"80px",margin:"5px"}} onClick={deleteItems(i._id)}>Delete</button>
                             {/* <button style={{width:"80px",margin:"5px",backgroundColor:"green"}}>Update</button> */}
                             {/* <Link to={`/update/${i._id}`}>Update</Link> */}
                             <a href={`/update/${i._id}`}>update</a>
